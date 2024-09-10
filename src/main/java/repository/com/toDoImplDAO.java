@@ -33,7 +33,7 @@ public class toDoImplDAO implements DAO {
                         rs.getInt("id"),
                         rs.getString("title"),
                         rs.getString("description"),
-                        rs.getObject("creation_date", LocalDateTime.class),
+                        rs.getObject("creationDate", LocalDateTime.class),
                         rs.getObject("deadline", LocalDateTime.class),
                         rs.getObject("execution_date", LocalDateTime.class),
                         Priorities.valueOf(rs.getString("priority")),

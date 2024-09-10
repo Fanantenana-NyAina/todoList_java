@@ -20,9 +20,4 @@ public class todoController {
     public List<todo> getAllTodos() throws SQLException, ClassNotFoundException {
         return service.getAllTodos();
     }
-
-    @GetMapping("/error")
-    public String error() throws SQLException, ClassNotFoundException {
-        return error();
-    }
 }
