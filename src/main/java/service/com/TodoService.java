@@ -28,6 +28,10 @@ public class TodoService {
     }
 
     public void create(todo toAdd) {
-        dao.create(toAdd);
+        try {
+            dao.create(toAdd);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

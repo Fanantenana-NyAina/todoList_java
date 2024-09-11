@@ -7,6 +7,7 @@ import service.com.TodoService;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class todoController {
@@ -16,14 +17,18 @@ public class todoController {
         this.service = service;
     }
 
+    @GetMapping("/")
+    public String hello() {
+        return "Hello World";
+    }
     @GetMapping("/todos")
     public List<todo> getAllTodos() throws SQLException, ClassNotFoundException {
         return service.getAllTodos();
     }
 
     @GetMapping("todos/{id}")
-    public todo getOneTodo(@PathVariable(required = true) int id) throws SQLException, ClassNotFoundException {
-        return service.getOneTodo(id);
+    public Optional<todo> getOneTodo(@PathVariable(required = true) int id) throws SQLException, ClassNotFoundException {
+        return Optional.ofNullable(service.getOneTodo(id));
     }
 
     @GetMapping("/search")

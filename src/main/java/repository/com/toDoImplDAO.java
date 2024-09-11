@@ -20,7 +20,7 @@ public class toDoImplDAO implements DAO {
     @Override
     public void create(todo toAdd) {
         try {
-            PreparedStatement myPs = db.getConnection().prepareStatement("INSERT INTO todolist (id, title, description, creationDate, deadline, execution_date, priority, state) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement myPs = db.getConnection().prepareStatement("INSERT INTO todolist VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             myPs.setInt(1, toAdd.getId());
             myPs.setString(2, toAdd.getTitle());
             myPs.setString(3, toAdd.getDescription());
